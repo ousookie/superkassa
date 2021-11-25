@@ -18,8 +18,8 @@ public class IncrementationServiceImplementation implements IncrementationServic
     private final Sk_Example_Table_Repository sk_example_table_repository;
 
     @Transactional
-    public synchronized ResponseEntity increment(final UUID uuid,
-                                                 final Integer incrementValue) {
+    public ResponseEntity increment(final UUID uuid,
+                                    final Integer incrementValue) {
         Optional<Sk_Example_Table> sk_example_table = sk_example_table_repository.findById(uuid);
         if (sk_example_table.isPresent()) {
             Sk_Example_Table current_table = sk_example_table.get();

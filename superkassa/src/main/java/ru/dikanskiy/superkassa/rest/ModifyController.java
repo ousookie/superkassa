@@ -18,7 +18,7 @@ public class ModifyController {
     private final IncrementationServiceImplementation incrementationServiceImplementation;
 
     @PostMapping(value = "/modify")
-    public ResponseEntity increment(@RequestBody IncrementRequest incrementRequest) {
+    public ResponseEntity modifyEntity(@RequestBody IncrementRequest incrementRequest) {
         try {
             return incrementationServiceImplementation.increment(incrementRequest.getId(),
                     incrementRequest.getIncrementValue());

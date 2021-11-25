@@ -9,15 +9,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.UUID;
 
+@Entity
 @Getter
 @Setter
-@Entity
 @Table(name = "sk_example_table")
 public class Sk_Example_Table {
 
     @Id
     @Column(name = "id", unique = true)
-    private UUID uuid;
+    private UUID id;
 
     @Column(name = "value", nullable = false)
     private Integer value;
