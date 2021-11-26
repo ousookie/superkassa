@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import ru.dikanskiy.superkassa.exceptions.MyException;
 import ru.dikanskiy.superkassa.persistance.entities.IncrementRequest;
-import ru.dikanskiy.superkassa.persistance.entities.ResponseEntity;
+import ru.dikanskiy.superkassa.persistance.entities.Obj;
 import ru.dikanskiy.superkassa.services.IncrementationServiceImplementation;
 
 @RestController
@@ -18,10 +18,9 @@ public class ModifyController {
     private final IncrementationServiceImplementation incrementationServiceImplementation;
 
     @PostMapping(value = "/modify")
-    public ResponseEntity modifyEntity(@RequestBody IncrementRequest incrementRequest) {
+    public Obj modifyEntity(@RequestBody IncrementRequest incrementRequest) {
         try {
-            return incrementationServiceImplementation.increment(incrementRequest.getId(),
-                    incrementRequest.getIncrementValue());
+            return incrementationServiceImplementation.increment(incrementRequest.getId(), incrementRequest.getAdd());
         } catch (MyException myException) {
             throw new ResponseStatusException(HttpStatus.I_AM_A_TEAPOT, "Sk_Example_Table Not Found", myException);
         }

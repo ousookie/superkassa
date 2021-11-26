@@ -7,12 +7,11 @@ import ru.dikanskiy.superkassa.persistance.entities.Sk_Example_Table;
 
 import javax.persistence.LockModeType;
 import java.util.Optional;
-import java.util.UUID;
 
 @Repository
-public interface Sk_Example_Table_Repository extends JpaRepository<Sk_Example_Table, UUID> {
+public interface Sk_Example_Table_Repository extends JpaRepository<Sk_Example_Table, Long> {
 
     @Lock(LockModeType.PESSIMISTIC_WRITE)
-    Optional<Sk_Example_Table> findById(UUID id);
+    Optional<Sk_Example_Table> findById(Long id);
 
 }
